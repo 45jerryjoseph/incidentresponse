@@ -5,7 +5,11 @@ import React from 'react';
 import './App.css';
 import { useContext, useState } from 'react';
 import { AuthContext } from './AuthContext';
+import { Dashboard } from './Dashboard';
 import { Login } from './Login';
+import Signup from './signup';
+import {Privacy} from './Privacy';
+import {Terms} from './Terms';
 
 function App() {
   // const user = false;
@@ -22,12 +26,15 @@ function App() {
             {
               user ? (
                 <>
-                  
+                  <Route path='/dashboard' element ={<Dashboard/>} />
+                  <Route path='/privacy' element ={<Privacy/>} />
+                  <Route path='/terms' element ={<Terms/>} />
+y
                 </>
               ): (
                 <>
+                  <Route path='/' element ={<Signup/>} />
                   <Route path='/login' element ={<Login/>} />
-                  <Route path='/' element ={<Login/>} />
                 </>
               )
             }

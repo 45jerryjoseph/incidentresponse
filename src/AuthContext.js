@@ -50,7 +50,7 @@ const AuthReducer =(state ,action) =>{
 
     }
 }
-// cchildren is the components that we want to reach this data 
+// children is the components that we want to reach this data 
 export const AuthContextProvider = ({children}) =>{
     const [state ,dispatch] = useReducer (AuthReducer,INITIAL_STATE);
     useEffect( ()=>{

@@ -1,19 +1,14 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
-import { AuthContext } from './AuthContext';
+// import { AuthContext } from './AuthContext';
 import './login.scss';
 import { useNavigate } from 'react-router-dom';
 import validator from 'validator';
+import { AuthContext } from './AuthContext';
 
 export const Login = () => {
 
-  // const [lcredentials,setLcredentials] = useState({
-  //   email:undefined,
-  //   password:undefined
-  // });
-  // const handleChange = (e) =>{
-  //   setLcredentials((prev) => ({...prev, [e.target.id] : e.target.value}));
-  // }
+
   const [email, setEmail] = useState(undefined);
   const [password, setPassword]   = useState(undefined);
   const [message, setMessage] = useState("");
@@ -48,7 +43,7 @@ export const Login = () => {
     dispatch({type:"LOGIN_START"});
     try {
       // const res = await axios.post(`/auth/login`,lcredentials);
-      const res = await axios.post(`/auth/login`,{email, password});
+      const res = await axios.post(`http://localhost:8080/api/auth/login`,{email, password});
       dispatch({type: "LOGIN_SUCESS", payload: res.data.details});
       navigate("/dashboard");
       console.log(res.data.details);
@@ -63,7 +58,7 @@ export const Login = () => {
   const handleGetOtp = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.get(`/auth/generateOtp`, {params: { email }});
+      const res = await axios.get(`http://localhost:8080/api/auth/generateOtp`, {params: { email }});
       setMessage(res.data.message);
       setOtpgen(res.data.otpGenerated);
       setVerify(true)
