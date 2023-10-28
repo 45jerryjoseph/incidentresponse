@@ -1,0 +1,160 @@
+.login{
+    background-color: #282c34;
+    //   border: 2px solid red;
+    min-height: 90vh;
+    
+    // @import "compass/css3";
+
+    /* //// Global Styles \\\\ */
+
+    $white: rgba(255,255,255, 1);
+    $darkGray: rgba(0, 0, 0, 0.75);
+    $transOrange: rgba(245,132,20, 0.75);
+    $ultraTransOrange: rgba(245,132,20, 0.25);
+    $opaqueOrange: rgba(245,132,20, 1);
+
+    @mixin placeholder($color) {
+    &::-webkit-input-placeholder {
+        text-overflow: ellipsis;
+        color: $color;
+    }
+    &:-moz-placeholder {
+        text-overflow: ellipsis;
+        color: $color;  
+    }
+    &::-moz-placeholder {
+        text-overflow: ellipsis;
+        color: $color;  
+    }
+    &:-ms-input-placeholder {  
+        text-overflow: ellipsis;
+        color: $color;  
+    }
+    }
+
+    @mixin box-shadow($color) {
+    -webkit-box-shadow: 0 0 5px $color;
+    -moz-box-shadow: 0 0 5px $color;
+    box-shadow: 0 0 5px $color;
+    }
+
+    @mixin fieldFocus() {
+    &:focus {
+        color: $white;
+        background-color: $ultraTransOrange;
+        border: 2px solid $white;
+        @include box-shadow($white);        
+        @include placeholder($white);    
+    }
+    }
+
+
+    /* //// Image Styles \\\\ */
+
+    .bgImage {
+    width: 100%;
+    height: 100%;
+    /* min-height: 100%; */
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    background: linear-gradient(
+        $darkGray,
+        $darkGray
+        ),
+    url("https://cdn.pixabay.com/photo/2016/11/07/12/08/cyber-security-1805632_960_720.png") no-repeat center center fixed;
+            background-size: cover;
+    }
+
+
+    /* //// Form Styles \\\\ */
+
+    form {
+    width: 100%;
+    max-width: 960px;
+    height: 100%;
+    }
+
+    .formWrap {
+        width: 75%;
+        max-width: 500px;
+    height: 100%;
+        margin: 0 auto;
+    padding: 1rem 0;
+    overflow: auto;
+        p {
+        color: white;
+        padding-left: .5rem;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        }
+    }
+
+    input {
+    &[type="text"], 
+    &[type="email"], 
+    &[type="password"] {
+        width: 96%;
+        height: 2.5rem;
+        margin: 0 .25rem .5rem;
+        padding-left: .5rem;
+        background-color: $white;
+        border-radius: 10px 5px;
+    
+        outline: none;
+        transition-property: background-color, border, box-shadow;
+        transition-duration: .5s;
+        
+        @include placeholder($opaqueOrange);
+    }
+        @include fieldFocus();
+        &:focus {
+            color: $white;
+            background-color: $ultraTransOrange;
+            border: 2px solid $white;
+            @include box-shadow($white);      
+            @include placeholder($white);    
+        }
+    }
+    .otpContainer{
+        display: flex;
+        .otp{
+            flex: 3;
+        }
+        button{
+            flex:1;
+            height: 3rem;
+            cursor: pointer;
+        }
+    }
+    .submit{
+        width: 75%;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        margin: 10px 0;
+    
+        border: 2px solid white;
+        border-radius: .25rem;
+        cursor: pointer;
+        
+        color: $white;
+        text-transform: uppercase;
+        font-size: 17px;
+        background-color: transparent;
+        transition: background-color .5s;
+            &:hover {
+            color: $white;
+            border: 2px solid $white;
+            background-color: $opaqueOrange;
+            }
+            &:focus {
+            background-color: $opaqueOrange;
+            outline: none;
+            }
+    }
+
+
+
+}
