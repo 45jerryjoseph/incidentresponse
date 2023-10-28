@@ -52,7 +52,7 @@ export const Dashboard = () => {
         
         {showReportForm && (
           <form onSubmit={handleSubmit}>
-            <input type="text" name="affectedPerson" placeholder="Affected person" onChange={handleChange} required />
+            <input type="text" name="affectedPerson" placeholder="Enter Your name" onChange={handleChange} required />
             <select name="incidentType" onChange={handleChange} required>
               <option value="">Select incident type</option>
               <option value="ddos">DDoS Attack</option>
