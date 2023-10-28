@@ -6,6 +6,8 @@ import './App.css';
 import { useContext, useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { Login } from './Login';
+import {Signup} from './Signup';
+import {Dashboard} from './Dashboard';
 
 function App() {
   // const user = false;
@@ -19,15 +21,16 @@ function App() {
       <body>
         <BrowserRouter>
           <Routes>
-            {
+          {
               user ? (
                 <>
-                  
+                  <Route path='/dashboard' element ={<Dashboard />} />
                 </>
               ): (
                 <>
                   <Route path='/login' element ={<Login/>} />
-                  <Route path='/' element ={<Login/>} />
+                  <Route path='/' element ={<Signup/>} />
+                  
                 </>
               )
             }
