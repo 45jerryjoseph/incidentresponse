@@ -10,7 +10,8 @@ import { Login } from './Login';
 import Signup from './signup';
 import {Privacy} from './Privacy';
 import {Terms} from './Terms';
-
+import {Admin} from "./Admin"
+import Home from './Home';
 function App() {
   // const user = false;
   // const [user, setUser] = useState(true);
@@ -29,12 +30,15 @@ function App() {
                   <Route path='/dashboard' element ={<Dashboard/>} />
                   <Route path='/privacy' element ={<Privacy/>} />
                   <Route path='/terms' element ={<Terms/>} />
+                  <Route path='/admin' element ={<Admin/>} />
 y
                 </>
               ): (
                 <>
-                  <Route path='/' element ={<Signup/>} />
+                  <Route path='/' element ={<Home/>} />
+                  <Route path='/signup' element ={<Signup/>} />
                   <Route path='/login' element ={<Login/>} />
+  
                 </>
               )
             }
